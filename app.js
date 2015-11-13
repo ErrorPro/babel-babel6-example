@@ -1,41 +1,50 @@
 class Father {
   constructor() {
-    this.name = 'father';
+    this.name = 'ES5';
+    this.lastName = 'Javascript'
   }
 
   call() {
-    console.log('Call to father');
+    console.log(`Hello i am ${this.name} ${this.lastName}`);
   }
 }
 
-class Test extends Father{
-  constructor () {
+class Son extends Father{
+  constructor (name) {
     super();
-    this.console = 'console.log';
-    this.name = 'constructor';
+    this.name = name;
   }
 
   fn() {
     const name = "fn";
 
+    //arrow function, doesnt change context
     return () => {
       console.log(name, this.name);
     };
   }
 
   fn2(par) {
+    //spread operator
     const {obj, ...others} = par;
-    console.log(obj, others);
+    console.log(`hello i am ${obj}`);
+    console.log(`hello i am others ${others}`);
   }
 
+//async await
   async prom({name}) {
-    const result = await new Promise(res => res('SUCCESS'));
-    return new Promise(res => res(`${result}--${name}--SUCCESS2`));
+    const result = await new Promise(res => res('I am awaited result'));
+    return new Promise(res => res(`${result}--${name}`));
   }
 }
 
-const t = new Test();
-t.call();
-t.fn()();
-t.fn2({obj: 'output', a: 22, c: 'cc'});
-t.prom({name: 'testName'}).then(res => console.log(res), rej => console.log(rej));
+const ES5 = new Father()
+const ES6 = new Son('ES6');
+ES5.call();
+ES6.call();
+console.log('--------------------------')
+ES6.fn()();
+console.log('--------------------------')
+ES6.fn2({obj: 'distinct', a: 22, c: 'cc'});
+console.log('--------------------------')
+ES6.prom({name: 'I am result'}).then(res => console.log(res), rej => console.log(rej));
