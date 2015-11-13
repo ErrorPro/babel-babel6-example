@@ -1,13 +1,25 @@
 {
   "name": "babel6-example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "babel6 example",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node app.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ErrorPro/babel6-example.git"
+  },
+  "keywords": [
+   "babel",
+   "babel6",
+   "example",
+   "ES6",
+   "ES7",
+   "ES2015"
+  ],
+  "author": "Ven Korolev",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.1.19",
